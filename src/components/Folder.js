@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const Folder = ({ item }) => (
   <div className='folder'>
     <Link to={`${item.path.slice(5)}`}>
-        {item.name}
+      <i className="fa fa-folder-o" aria-hidden="true"></i>
+      {item.name}
     </Link>
   </div>
 );

@@ -25,7 +25,7 @@ const commonConfig = merge([
 
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'Regex Golf',
+        title: 'Yandex Disk Explorer',
         template: 'index.ejs'
       }),
     ],
@@ -33,7 +33,11 @@ const commonConfig = merge([
   parts.lintJavaScript({ include: PATHS.app }),
   parts.loadJavaScript({ include: PATHS.src }),
   parts.loadImages(),
-
+  parts.loadFonts({
+    options: {
+      name: '[name].[ext]',
+    },
+  }),
 ]);
 
 const productionConfig = merge([

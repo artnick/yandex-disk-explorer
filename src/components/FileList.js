@@ -3,7 +3,7 @@ import File from './File';
 import Folder from './Folder';
 
 const FileList = ({ list=[] }) => (
-  <div className=''>
+  <div className='file-list'>
     {list.map((item, index) => 
       item.type == 'dir' ?
         <Folder key={index} item={item}/> :

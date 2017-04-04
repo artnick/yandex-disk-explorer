@@ -15,14 +15,14 @@ class ExplorerPage extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     if(this.props.location.pathname != nextProps.location.pathname) {
-      console.log(nextProps.location);
       this.props.dispatch(fetchList('disk:'+ nextProps.location.pathname));
     }
   }
 
   render() {
     return (
-      <div className='task'>
+      <div className='explorer'>
+        <h1>Yandex.Disk Explorer</h1>
         <Toolbar path={this.props.currentPath}/>
         <FileList list={this.props.list}/>
       </div>

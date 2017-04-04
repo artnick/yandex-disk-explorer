@@ -1,7 +1,7 @@
 {
   "name": "regex-golf",
   "version": "1.0.0",
-  "description": "regex-golf",
+  "description": "yandex-disk-explorer",
   "main": "index.js",
   "scripts": {
     "start": "webpack -p --env production && node src/server.js",
@@ -40,6 +40,7 @@
     "webpack-merge": "^4.0.0"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",

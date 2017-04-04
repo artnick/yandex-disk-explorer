@@ -7,7 +7,9 @@ const pathToParent = (path) => {
 
 const Toolbar = ({ path }) => (
   <div className='toolbar'>
-    <Link to={pathToParent(path)}>Back</Link>
+    <Link className="levelup-btn" to={pathToParent(path)}>
+      <i className="fa fa-level-up" aria-hidden="true"></i>
+    </Link>
   </div>
 );
 

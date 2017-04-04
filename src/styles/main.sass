@@ -1,11 +1,42 @@
-$container-large-desktop: 970px
+$container-large-desktop: 750px
 @import 'bootstrap-custom'
-
+@import '~font-awesome/css/font-awesome.css'
 $border-color: #d1d5da
 $border-radius: 4px
 
-$passed-color: #d0f7ba
-$failed-color: #ffdac9
-
 $small-spinner-size: 28px
 $big-spinner-size: 120px
+
+%list-item
+  padding: 7px 5px
+  border-top: 1px solid $border-color
+  i
+    margin-right: 5px
+
+.app
+  @extend .container
+  font-family: helvetica, arial, sans-serif
+
+.explorer
+  margin-top: 100px
+
+.toolbar
+  padding: 10px 5px
+  background-color: $border-color
+
+.levelup-btn
+  padding: 0 5px
+  font-size: 18px
+
+.file-list
+
+.file
+  @extend %list-item
+  &__size
+    float: right
+
+.folder
+  @extend %list-item
+  a:hover
+    i:before
+      content: '\f115'

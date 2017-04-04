@@ -5,7 +5,7 @@ export const FETCH_LIST_SUCCESS = 'FETCH_LIST_SUCCESS';
 export const FETCH_LIST_FAILURE = 'FETCH_LIST_FAILURE';
 
 const REQUEST_URL = 'https://cloud-api.yandex.net:443/v1/disk/resources?path=';
-const TOKEN = 'AQAAAAAFxVeqAAQtDERSf4C1kkIlkhXKn8YNFps';
+const TOKEN = 'AQAAAAAFxVeqAAQtDBb2OnMW5EUqoNqv17K2-q4';
 
 
 const fetchListRequest = () => {
