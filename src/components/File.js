@@ -11,7 +11,7 @@ const formatBytes = (bytes, decimals) => {
 
 const File = ({ item }) => (
   <li className='file list-group-item'>
-    <i className="fa fa-file-o" aria-hidden="true"></i>
+    <span className="glyphicon glyphicon-file"></span>
     <span>{item.name}</span>
     <span className='badge'>{formatBytes(item.size)}</span>
   </li>

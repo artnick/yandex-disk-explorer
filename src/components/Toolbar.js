@@ -9,7 +9,7 @@ const pathToParent = (path) => {
 const Toolbar = ({ path, isLoading }) => (
   <div className='panel-heading'>
     <Link className="levelup-btn btn btn-default" to={pathToParent(path)}>
-      <i className="fa fa-level-up" aria-hidden="true"></i>
+      <span className="glyphicon glyphicon-arrow-up"></span>
     </Link>
     <Spinner visible={isLoading}/>
   </div>

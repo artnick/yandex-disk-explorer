@@ -4,7 +4,7 @@ import ExplorerPage from '../containers/ExplorerPage';
 
 const App = () => (
   <Router>
-    <div className='app'>
+    <div className='app container'>
       <Route component={ExplorerPage}/>
     </div>
   </Router>

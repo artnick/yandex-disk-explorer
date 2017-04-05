@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Folder = ({ item }) => (
   <Link className='folder list-group-item' to={`${item.path.slice(5)}`}>
-    <i className="fa fa-folder-o" aria-hidden="true"></i>
+    <span className="glyphicon glyphicon-folder-close"></span>
     {item.name}
   </Link>
 );

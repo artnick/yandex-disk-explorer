@@ -25,7 +25,7 @@ const commonConfig = merge([
 
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'Yandex Disk Explorer',
+        title: 'YDisk Explorer',
         template: 'index.ejs'
       }),
     ],
