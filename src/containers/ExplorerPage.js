@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-//import Spinner from '../components/Spinner';
-import { fetchList, setToken } from '../actions';
-import FileList from '../components/FileList';
-import Toolbar from '../components/Toolbar';
+import Explorer from '../components/Explorer';
 import Login from '../components/Login';
+import { fetchList, setToken } from '../actions';
 import { saveTokenToStorage, getTokenFromStorage } from '../localStorage';
 
 class ExplorerPage extends React.Component {
@@ -32,12 +30,11 @@ class ExplorerPage extends React.Component {
 
   render() {
     if(this.props.token)
-      return (
-        <div className='explorer panel panel-default'>
-          <Toolbar path={this.props.currentPath} isLoading={this.props.isLoading}/>
-          <FileList list={this.props.list}/>
-        </div>
-      );
+      return <Explorer 
+        list={this.props.list} 
+        isLoading={this.props.isLoading}
+        currentPath={this.props.currentPath}
+      />;
     else
       return <Login />;
   }

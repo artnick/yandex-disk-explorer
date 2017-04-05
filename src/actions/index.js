@@ -6,6 +6,16 @@ export const RESET_TOKEN = 'RESET_TOKEN';
 
 const REQUEST_URL = 'https://cloud-api.yandex.net:443/v1/disk/resources?path=';
 
+//copy only keys what you need
+export const partialCopyObj = (obj, keys) => {
+  let newObj = {};
+  for (let key in obj) {
+    if(keys.indexOf(key) != -1)
+      newObj[key] = obj[key];
+  }
+  return newObj;
+};
+
 export const setToken = (token) => {
   return {
     type: SET_TOKEN,
@@ -28,20 +38,13 @@ const fetchListRequest = () => {
 const fetchListSuccess = (json) => {
   const list = json._embedded.items.map((item) => {
     if (item.type == 'dir') {
-      return {
-        type: item.type,
-        name: item.name,
-        path: item.path,
-      };
+      return partialCopyObj(item, ['type','name','path']);
     } else {
-      return {
-        type: item.type,
-        name: item.name,
-        size: item.size,
-      };
+      return partialCopyObj(item, ['type','name','size']);
     }
   });
   const currentPath = json.path;
+  
   return {
     type: FETCH_LIST_SUCCESS,
     list,
