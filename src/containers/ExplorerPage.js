@@ -11,6 +11,7 @@ class ExplorerPage extends React.Component {
   }
 
   componentDidMount() {
+    //getting token from url hash or localstorage
     if(!this.props.token) {
       if(this.props.location.hash) {
         const token = /access_token=([^&]+)/.exec(this.props.location.hash)[1];
@@ -23,6 +24,7 @@ class ExplorerPage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    //fetching files list when change current folder and token is exist
     if(this.props.location.pathname != nextProps.location.pathname || nextProps.token != this.props.token) {
       this.props.dispatch(fetchList('disk:'+ nextProps.location.pathname));
     }

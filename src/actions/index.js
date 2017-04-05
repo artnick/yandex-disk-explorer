@@ -68,7 +68,7 @@ export function fetchList(path) {
     };
     return fetch(REQUEST_URL + path, init)
       .then((response) => {
-        console.log(response);
+        //reset token if it is invalid
         if(response.status == 401) {
           dispatch(resetToken());
           throw Error(response.statusText);
