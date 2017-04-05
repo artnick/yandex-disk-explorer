@@ -17,7 +17,7 @@ const Toolbar = ({ path, isLoading }) => (
 
 Toolbar.propTypes = {
   path: React.PropTypes.string,
-  isLoading: React.PropTypes.string,
+  isLoading: React.PropTypes.bool,
 };
 
 export default Toolbar;

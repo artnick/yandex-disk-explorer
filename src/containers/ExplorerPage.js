@@ -5,6 +5,7 @@ import { fetchList, setToken } from '../actions';
 import FileList from '../components/FileList';
 import Toolbar from '../components/Toolbar';
 import Login from '../components/Login';
+import { saveTokenToStorage, getTokenFromStorage } from '../localStorage';
 
 class ExplorerPage extends React.Component {
   constructor(props) {
@@ -12,9 +13,14 @@ class ExplorerPage extends React.Component {
   }
 
   componentDidMount() {
-    if(this.props.location.hash) {
-      const token = /access_token=([^&]+)/.exec(this.props.location.hash)[1];
-      this.props.dispatch(setToken(token));
+    if(!this.props.token) {
+      if(this.props.location.hash) {
+        const token = /access_token=([^&]+)/.exec(this.props.location.hash)[1];
+        saveTokenToStorage(token);
+        this.props.dispatch(setToken(token));
+      } else {
+        this.props.dispatch(setToken(getTokenFromStorage()));
+      }
     }
   }
 

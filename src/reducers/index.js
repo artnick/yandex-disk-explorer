@@ -3,6 +3,7 @@ import {
   FETCH_LIST_SUCCESS, 
   FETCH_LIST_FAILURE, 
   SET_TOKEN,
+  RESET_TOKEN,
 } from '../actions/';
 
 const initialState = { 
@@ -19,6 +20,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         token: action.token,
         currentPath: '/', 
+      };
+    case RESET_TOKEN:
+      return {
+        ...state,
+        token: '',
+        currentPath: '', 
       };
     case FETCH_LIST_REQUEST:
       return {

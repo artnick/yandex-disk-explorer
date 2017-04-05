@@ -2,6 +2,7 @@ export const FETCH_LIST_REQUEST = 'FETCH_LIST_REQUEST';
 export const FETCH_LIST_SUCCESS = 'FETCH_LIST_SUCCESS';
 export const FETCH_LIST_FAILURE = 'FETCH_LIST_FAILURE';
 export const SET_TOKEN = 'SET_TOKEN';
+export const RESET_TOKEN = 'RESET_TOKEN';
 
 const REQUEST_URL = 'https://cloud-api.yandex.net:443/v1/disk/resources?path=';
 
@@ -9,6 +10,12 @@ export const setToken = (token) => {
   return {
     type: SET_TOKEN,
     token,
+  };
+};
+
+const resetToken = () => {
+  return {
+    type: RESET_TOKEN,
   };
 };
 
@@ -54,10 +61,17 @@ export function fetchList(path) {
 
     const headers = new Headers({ 'Authorization' : `OAuth ${getState().token}` });
     const init = {
-      method: 'GET',
       headers: headers,
     };
     return fetch(REQUEST_URL + path, init)
+      .then((response) => {
+        console.log(response);
+        if(response.status == 401) {
+          dispatch(resetToken());
+          throw Error(response.statusText);
+        }
+        return response;
+      })
       .then(response => response.json())
       .then(json => dispatch(fetchListSuccess(json)))
       .catch(function(error) { 
