@@ -3,13 +3,13 @@ import File from './File';
 import Folder from './Folder';
 
 const FileList = ({ list=[] }) => (
-  <div className='file-list'>
+  <ul className='file-list list-group'>
     {list.map((item, index) => 
       item.type == 'dir' ?
         <Folder key={index} item={item}/> :
         <File key={index} item={item}/>
     )}
-  </div>
+  </ul>
 );
 
 FileList.propTypes = {

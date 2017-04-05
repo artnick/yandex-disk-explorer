@@ -6,8 +6,8 @@ const pathToParent = (path) => {
 };
 
 const Toolbar = ({ path }) => (
-  <div className='toolbar'>
-    <Link className="levelup-btn" to={pathToParent(path)}>
+  <div className='panel-heading'>
+    <Link className="levelup-btn btn btn-default" to={pathToParent(path)}>
       <i className="fa fa-level-up" aria-hidden="true"></i>
     </Link>
   </div>

@@ -10,11 +10,11 @@ const formatBytes = (bytes, decimals) => {
 };
 
 const File = ({ item }) => (
-  <div className='file'>
+  <li className='file list-group-item'>
     <i className="fa fa-file-o" aria-hidden="true"></i>
     <span>{item.name}</span>
-    <span className='file__size'>{formatBytes(item.size)}</span>
-  </div>
+    <span className='badge'>{formatBytes(item.size)}</span>
+  </li>
 );
 
 File.propTypes = {

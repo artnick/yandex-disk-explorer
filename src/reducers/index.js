@@ -4,6 +4,7 @@ const initialState = {
   currentPath: '/', 
   list: [],
   isLoading: false,
+  token: '',
 };
 
 const reducer = (state = initialState, action) => {
