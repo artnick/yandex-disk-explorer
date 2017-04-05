@@ -1,7 +1,12 @@
-import { FETCH_LIST_REQUEST, FETCH_LIST_SUCCESS, FETCH_LIST_FAILURE} from '../actions/';
+import { 
+  FETCH_LIST_REQUEST, 
+  FETCH_LIST_SUCCESS, 
+  FETCH_LIST_FAILURE, 
+  SET_TOKEN,
+} from '../actions/';
 
 const initialState = { 
-  currentPath: '/', 
+  currentPath: '', 
   list: [],
   isLoading: false,
   token: '',
@@ -9,6 +14,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_TOKEN:
+      return {
+        ...state,
+        token: action.token,
+        currentPath: '/', 
+      };
     case FETCH_LIST_REQUEST:
       return {
         ...state,

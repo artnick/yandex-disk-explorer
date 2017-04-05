@@ -1,12 +1,16 @@
-
-export const CHANGE_REGEXP = 'CHANGE_REGEXP';
 export const FETCH_LIST_REQUEST = 'FETCH_LIST_REQUEST';
 export const FETCH_LIST_SUCCESS = 'FETCH_LIST_SUCCESS';
 export const FETCH_LIST_FAILURE = 'FETCH_LIST_FAILURE';
+export const SET_TOKEN = 'SET_TOKEN';
 
 const REQUEST_URL = 'https://cloud-api.yandex.net:443/v1/disk/resources?path=';
-const TOKEN = 'AQAAAAAFxVeqAAQtDBb2OnMW5EUqoNqv17K2-q4';
 
+export const setToken = (token) => {
+  return {
+    type: SET_TOKEN,
+    token,
+  };
+};
 
 const fetchListRequest = () => {
   return {
@@ -45,10 +49,10 @@ const fetchListFailure = () => {
 };
 
 export function fetchList(path) {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(fetchListRequest());
 
-    const headers = new Headers({ 'Authorization' : `OAuth ${TOKEN}` });
+    const headers = new Headers({ 'Authorization' : `OAuth ${getState().token}` });
     const init = {
       method: 'GET',
       headers: headers,

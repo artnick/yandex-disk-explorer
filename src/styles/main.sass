@@ -5,32 +5,43 @@ $border-color: #d1d5da
 $border-radius: 4px
 
 $small-spinner-size: 28px
-$big-spinner-size: 120px
 
 %list-item
-  padding: 7px 5px
-  border-top: 1px solid $border-color
   i
     margin-right: 5px
 
 .app
   @extend .container
+  padding-top: 50px
   font-family: helvetica, arial, sans-serif
 
+.login
+  text-align: center
+  a
+    text-decoration: none
+
 .levelup-btn
-  padding: 0 5px
-  font-size: 18px
+  padding: 0 10px
+  font-size: 20px
 
 .file-list
   margin: 0
 
 .file
   @extend %list-item
-  &__size
-    float: right
 
 .folder
   @extend %list-item
   a:hover
     i:before
       content: '\f115'
+
+.spinner
+  display: inline-block
+  background-image: url("../images/spinner.gif")
+  background-size: cover
+  vertical-align: bottom
+  float: right
+  &_small
+    width: $small-spinner-size
+    height: $small-spinner-size
